@@ -29,13 +29,20 @@ public class IntegerSorter implements Sorter {
 	
 	
 	public int[] sort_method1(int[] list) {
-		for(int k = 0; k < list.length; k++) {
+		for(int k = 0; k < list.length-1; k++) {// list.length - 1 or list.length
+			
 			for(int i = 0; i < list.length-1; i++) {
+				
 				int current = list[i];
+				
 				int next = list[i+1];
+				
 				if(list[i+1] < list[i]) {
+					
 					list[i] = next;
+					
 					list[i+1] = current;
+					
 				}
 			}
 		}
@@ -43,7 +50,26 @@ public class IntegerSorter implements Sorter {
 	}
 	
 	public int[] sort_method2(int[] list) {
-		return null;
+		for(int k = 0; k < list.length-1; k++) {
+			
+			int current = list[k];
+			
+			for(int i = k; i < list.length-1; i++) {
+				
+				current = list[k];
+				
+				int next = list[i+1]; 
+				//System.out.println(current + " " + next);
+				if(list[i+1] < list[k]) {
+					
+					list[k] = next;
+					
+					list[i+1] = current;
+					
+				}
+			}
+		}
+		return list;
 	}
 	
 	public int[] sort_method3(int[] list) {
@@ -56,7 +82,7 @@ public class IntegerSorter implements Sorter {
 	public static void main(String[] args) {
 		IntegerSorter sorter = new IntegerSorter();
 		
-		File file = new File("src\\2power4.txt");
+		File file = new File("src\\2power18.txt");
 		Scanner scan = null;
 		try {
 			scan = new Scanner(file);
@@ -73,8 +99,8 @@ public class IntegerSorter implements Sorter {
 		
 		
 		int[] List = sorter.getList();
-		sorter.sort_method1(List);
-		
+		sorter.sort_method2(List);
+
 		for(int i = 0; i < List.length; i++) {
 			System.out.println(List[i]);
 		}
