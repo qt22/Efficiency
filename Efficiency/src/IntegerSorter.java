@@ -91,7 +91,7 @@ public class IntegerSorter implements Sorter {
 		int[] list3 = Arrays.copyOfRange(list, middle+1, end+1);
 		
 		int counter1 = 0, counter2 = 0, counter3 = 0; 
-		while(counter1 < list.length) { 
+		while(counter1 < list2.length && counter1 < list3.length) { 
 			if(list2[counter2] < list3[counter3]) { 
 				list[counter1 + start] = list2[counter2];
 				counter2++; 
